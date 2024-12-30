@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "./components/form";
+import List from "./components/List";
 
 function App() {
   const [items, setItems] = useState([
@@ -12,17 +13,7 @@ function App() {
     <div className="w-80 space-y-10 pt-10 text-center">
       <h1 className="font-bold text-3xl">Expense Tracker</h1>
       <Form setItems={setItems} />
-      <ul className="space-y-4 p-2">
-        {items.map((item) => (
-          <li
-            key={item.itemName}
-            className="capitalize flex justify-between border-b-2 "
-          >
-            <span>{item.name}</span>
-            <span>{item.price}</span>
-          </li>
-        ))}
-      </ul>
+      <List items={items} />
     </div>
   );
 }
